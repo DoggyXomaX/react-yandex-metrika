@@ -21,8 +21,6 @@ function YandexMetrika({
   scriptAttributes = {},
   children,
 }: TYandexMetrikaProps) {
-  let insertPoint: HTMLDivElement | null = null;
-
   useEffect(() => {
     if (Array.isArray(window[AccountListName]) && window[AccountListName].length > 0) {
       return;
@@ -45,15 +43,7 @@ function YandexMetrika({
     this.insertPoint.insertBefore(scriptElement, null);
   }, []);
 
-  return (
-    <div
-      ref={(element: HTMLDivElement) => {
-        insertPoint = element;
-      }}
-    >
-      { children }
-    </div>
-  );
+  return <>{ children }</>;
 }
 
 export { YandexMetrika };
